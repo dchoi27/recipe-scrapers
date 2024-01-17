@@ -280,6 +280,17 @@ class SchemaOrg:
         if ratings:
             return round(float(ratings), 2)
         raise SchemaOrgException("No ratingValue in SchemaOrg.")
+    
+    def ratings_count(self):
+        ratings_count = None
+        ratings = self.data.get("aggregateRating") or self._find_entity(
+            self.data, "AggregateRating"
+        )
+        if ratings and isinstance(ratings, dict):
+            ratings_count = ratings.get("ratingCount")
+        if ratings_count:
+            return int(ratings_count)
+        raise SchemaOrgException("No ratingCount in SchemaOrg.")
 
     def cuisine(self):
         cuisine = self.data.get("recipeCuisine")

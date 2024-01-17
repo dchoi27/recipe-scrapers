@@ -61,6 +61,9 @@ class AllRecipesCurated(AbstractScraper):
 
     def ratings(self):
         return self.schema.ratings()
+    
+    def ratings_count(self):
+        return self.schema.ratings_count()
 
     def cuisine(self):
         return self.schema.cuisine()
@@ -139,6 +142,9 @@ class AllRecipesUser(AbstractScraper):
 
         ratings = self.soup.find("span", {"class": "review-star-text"})
         return float(ratings.text.lstrip("Ratings:").rstrip("stars"))
+
+    def ratings_count(self):
+        return None
 
     def author(self):
         author = self.soup.find("span", {"class": "author-name"}).text
