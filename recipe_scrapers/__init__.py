@@ -4,7 +4,7 @@ import contextlib
 from typing import Any, Optional
 
 from ._abstract import AbstractScraper
-from ._exceptions import NoSchemaFoundInWildMode, WebsiteNotImplementedError
+from ._exceptions import NoSchemaFoundInWildMode, WebsiteNotImplementedError, SchemaOrgException
 from ._factory import SchemaScraperFactory
 from ._utils import get_host_name
 from .abril import Abril
